@@ -4,7 +4,7 @@
 //    <%= vite_client_tag %>
 //    <%= vite_javascript_tag 'application' %>
 import { createApp } from 'vue'
-import App from '@/components/app.vue'
+import App from '@/components/App.vue'
 
 // If using a TypeScript entrypoint file:
 //     <%= vite_typescript_tag 'application' %>
@@ -15,6 +15,7 @@ import App from '@/components/app.vue'
 // Example: Load Rails libraries in Vite.
 //
 // import * as Turbo from '@hotwired/turbo'
+// import "@/controllers"
 // Turbo.start()
 //
 // import ActiveStorage from '@rails/activestorage'
