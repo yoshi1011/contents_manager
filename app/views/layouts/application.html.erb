@@ -24,5 +24,7 @@
 
   <body>
     <%= yield %>
+
+    <%= console if Rails.env.development? %>
   </body>
 </html>
