@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="count++">Increment</button>
+    <v-btn variant="outlined" color="primary" @click="count++">Increment</v-btn>
 
     <p>{{count}}</p>
   </div>
