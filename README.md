@@ -1,24 +1,14 @@
-# README
+# ContentsManager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## これはなに
+コンテンツ配信のプラットフォームっぽいものを作っています。
 
-Things you may want to cover:
+配信者と利用者とが存在し、配信者はコンテンツの登録や課金などの設定を、利用者はコンテンツを探してストック、閲覧などを行うことができます。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- Ruby 3.2.2
+- Ruby on Rails 7.1.1
+- TypeScript 5.2.2
+- Vue.js 3.3.8
+- Vite 5.0.0
+- PostgreSQL 16.0
