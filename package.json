@@ -8,6 +8,7 @@
     "vuetify": "^3.4.2"
   },
   "devDependencies": {
+    "@mdi/font": "^7.3.67",
     "@vitejs/plugin-vue": "^4.5.0",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
