@@ -12,6 +12,8 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 
+import Header from "@/components/headers/Header.vue";
+
 const amountApp = (component: Component, rootContainer: string): void => {
   const vuetify = createVuetify({
     components,
@@ -26,3 +28,5 @@ const amountApp = (component: Component, rootContainer: string): void => {
 }
 
 export { amountApp }
+
+amountApp(Header, "#header")
