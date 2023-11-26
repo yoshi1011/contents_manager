@@ -1,5 +1,5 @@
 <template>
-  <BaseForm title="新規登録" action="/providers" />
+  <BaseForm title="ログイン" action="/providers/sign_in" />
 </template>
 
 <script setup lang="ts">

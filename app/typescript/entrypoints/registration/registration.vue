@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <RegistrationForm title="新規登録" />
+    <RegistrationForm />
   </v-container>
 </template>
 
