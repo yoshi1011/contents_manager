@@ -3,7 +3,8 @@
     <v-col cols="12" sm="8" md="4">
       <v-card class="mx-auto" min-width="500">
         <v-card-title>{{ title }}</v-card-title>
-        <form action="{{ action }}" method="post">
+        <form :action="action" method="post">
+          <input type="hidden" name="authenticity_token" :value="authenticityToken" />
           <v-card-text>
             <v-text-field
                 label="メールアドレス"
@@ -35,4 +36,6 @@ interface Props {
 }
 
 defineProps<Props>();
+
+const authenticityToken = document.head.querySelector("[name=csrf-token]")?.getAttribute("content") ?? "";
 </script>
