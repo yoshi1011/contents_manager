@@ -299,18 +299,12 @@ GEM
       securerandom (>= 0.1)
       strscan (>= 1.0.0)
       terminal-table (>= 2, < 4)
-    stimulus-rails (1.3.0)
-      railties (>= 6.0.0)
     stringio (3.0.8)
     strscan (3.0.7)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     thor (1.3.0)
     timeout (0.4.0)
-    turbo-rails (1.5.0)
-      actionpack (>= 6.0.0)
-      activejob (>= 6.0.0)
-      railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
@@ -358,8 +352,6 @@ DEPENDENCIES
   selenium-webdriver
   sprockets-rails
   steep (~> 1.5)
-  stimulus-rails
-  turbo-rails
   tzinfo-data
   vite_rails
   web-console
