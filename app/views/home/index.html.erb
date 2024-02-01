@@ -1,1 +1,4 @@
-<div id='app'>Home</div>
+<% content_for(:title) { 'Home' } %>
+<%= vite_typescript_tag 'entrypoints/home/application.ts' %>
+
+<div id="app"></div>

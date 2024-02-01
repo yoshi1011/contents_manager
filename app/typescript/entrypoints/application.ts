@@ -3,7 +3,8 @@
 //
 //    <%= vite_client_tag %>
 //    <%= vite_javascript_tag 'application' %>
-import { App, Component, createApp } from 'vue'
+import { Component, createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
 
 // Vuetify
 import 'vuetify/styles'
@@ -12,9 +13,9 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 
-import Header from "@/components/headers/Header.vue";
+import App from './App.vue'
 
-const amountApp = (component: Component, rootContainer: string): void => {
+const mountApp = (component: component): void => {
   const vuetify = createVuetify({
     components,
     directives,
@@ -22,11 +23,29 @@ const amountApp = (component: Component, rootContainer: string): void => {
       defaultSet: 'mdi',
     },
   })
-  const app: App<Element> = createApp(component)
-
-  app.use(vuetify).mount(rootContainer)
+  const app = createApp(App)
+  app.use(vuetify)
+  app.component('Component', component)
+  app.mount('#app')
 }
 
-export { amountApp }
+const mountAppWithRouter = (component: Component, routes: { path: string; component: any }[]): void => {
+  const vuetify = createVuetify({
+    components,
+    directives,
+    icons: {
+      defaultSet: 'mdi',
+    },
+  })
+  const app = createApp(App)
+  const router = createRouter({
+    history: createWebHistory(),
+    routes,
+  })
+  app.use(router)
+  app.use(vuetify)
+  app.component('Component', component)
+  app.mount('#app')
+}
 
-amountApp(Header, "#header")
+export { mountApp, mountAppWithRouter }

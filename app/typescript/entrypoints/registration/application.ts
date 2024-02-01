@@ -1,4 +1,4 @@
-import { amountApp } from "@/entrypoints/application.ts";
+import { mountApp } from "@/entrypoints/application.ts";
 import Registration from "./registration.vue";
 
-amountApp(Registration, "#app")
+mountApp(Registration)
