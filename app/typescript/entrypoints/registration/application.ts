@@ -1,4 +1,4 @@
 import { mountApp } from "@/entrypoints/application.ts";
-import Registration from "./registration.vue";
+import Registration from "../../components/pages/registration/registration.vue";
 
 mountApp(Registration)
