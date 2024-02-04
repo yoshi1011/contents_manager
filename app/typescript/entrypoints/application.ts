@@ -23,7 +23,7 @@ const mountApp = (component: component): void => {
       defaultSet: 'mdi',
     },
   })
-  const app = createApp(App)
+  const app = createApp(App, getDataJson())
   app.use(vuetify)
   app.component('Component', component)
   app.mount('#app')
@@ -37,7 +37,7 @@ const mountAppWithRouter = (component: Component, routes: { path: string; compon
       defaultSet: 'mdi',
     },
   })
-  const app = createApp(App)
+  const app = createApp(App, getDataJson())
   const router = createRouter({
     history: createWebHistory(),
     routes,
@@ -46,6 +46,16 @@ const mountAppWithRouter = (component: Component, routes: { path: string; compon
   app.use(vuetify)
   app.component('Component', component)
   app.mount('#app')
+}
+
+const getDataJson = () => {
+  const element = document.getElementById('app') as HTMLElement
+  const data = element.getAttribute('data')
+  if (!data) {
+    return {}
+  }
+
+  return JSON.parse(data)
 }
 
 export { mountApp, mountAppWithRouter }

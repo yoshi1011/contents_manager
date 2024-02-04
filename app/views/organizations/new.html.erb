@@ -1,4 +1,4 @@
 <% content_for(:title) { '企業情報の登録' } %>
 <%= vite_typescript_tag 'entrypoints/organizations/application.ts' %>
 
-<div id="app"></div>
+<div id="app" data="<%= { loggedIn: @logged_in }.to_json %>"></div>
