@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :dashboards, only: :index
 
-  resources :organizations, only: [:new, :create, :show, :edit, :update]
+  resource :organization, only: [:new, :create, :show, :edit, :update]
 
   # Defines the root path route ("/")
   root "home#index"
