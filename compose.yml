@@ -10,24 +10,24 @@ services:
       - bundle:/usr/local/bundle
     depends_on:
       - pgsql
-#      - vite
+      - vite
     tty: true
     stdin_open: true
     environment:
-      - RAILS_ENV=development
+      RAILS_ENV: development
+      VITE_RUBY_HOST: vite
     command: /bin/sh -c "rm -f tmp/pids/server.pid && bin/rails s -b 0.0.0.0"
 
-# bundle情報などを共有しなければエラーとなる。
-# 現状、使わなくても問題がないため修正せず停止している。
-#  vite:
-#    build: .
-#    environment:
-#      - RAILS_ENV=development
-#    ports:
-#      - "3036:3036"
-#    volumes:
-#      - .:/app:delegated
-#    command: /bin/sh -c "bin/vite dev"
+  vite:
+    build: .
+    environment:
+      RAILS_ENV: development
+      VITE_RUBY_HOST: 0.0.0.0
+    ports:
+      - "3036:3036"
+    volumes:
+      - .:/app:delegated
+    command: /bin/sh -c "bin/vite dev"
 
   pgsql:
     image: postgres:16
