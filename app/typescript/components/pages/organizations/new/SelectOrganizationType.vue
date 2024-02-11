@@ -21,12 +21,12 @@
 </template>
 
 <script setup lang="ts">
-import { defineEmits } from 'vue';
-const organizationTypes = ['individual', 'corporation'];
+import { defineEmits } from 'vue'
+const organizationTypes = ['individual', 'corporation']
 
-const emit = defineEmits(['updateEvent']);
+const emit = defineEmits(['updateEvent'])
 
-const selectedOrganizationType = () => {
+const selectedOrganizationType = (): void => {
   emit('updateEvent')
-};
+}
 </script>

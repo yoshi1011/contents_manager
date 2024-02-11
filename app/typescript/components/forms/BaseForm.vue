@@ -31,11 +31,11 @@
 
 <script setup lang="ts">
 interface Props {
-  title: string,
+  title: string
   action: string
 }
 
-defineProps<Props>();
+defineProps<Props>()
 
-const authenticityToken = document.head.querySelector("[name=csrf-token]")?.getAttribute("content") ?? "";
+const authenticityToken = document.head.querySelector('[name=csrf-token]')?.getAttribute('content') ?? ''
 </script>

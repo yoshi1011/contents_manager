@@ -20,17 +20,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue'
 
-import SelectOrganizationType from "./SelectOrganizationType.vue";
+import SelectOrganizationType from './SelectOrganizationType.vue'
 
-const nextButtonDisabled = ref(true);
+const nextButtonDisabled = ref(true)
 
-const changeButtonState = () => {
-  nextButtonDisabled.value = false;
-};
+const changeButtonState = (): voie => {
+  nextButtonDisabled.value = false
+}
 
-const resetButtonState = () => {
-  nextButtonDisabled.value = true;
+const resetButtonState = (): void => {
+  nextButtonDisabled.value = true
 }
 </script>

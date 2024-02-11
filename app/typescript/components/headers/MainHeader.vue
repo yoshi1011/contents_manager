@@ -18,19 +18,19 @@
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
+import axios from 'axios'
 
 const props = defineProps<
-    {
-      loggedIn: boolean
-    }
+{
+  loggedIn: boolean
+}
 >()
 
-const authenticityToken = document.head.querySelector("[name=csrf-token]")?.getAttribute("content") ?? "";
+const authenticityToken = document.head.querySelector('[name=csrf-token]')?.getAttribute('content') ?? ''
 
-const logout = () => {
-  axios.delete("/providers/sign_out", { params: { authenticity_token: authenticityToken }}).then(() => {
-    location.href = "/";
-  });
+const logout = (): void => {
+  void axios.delete('/providers/sign_out', { params: { authenticity_token: authenticityToken } }).then(() => {
+    location.href = '/'
+  })
 }
 </script>

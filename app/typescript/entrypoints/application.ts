@@ -1,9 +1,4 @@
-// To see this message, add the following to the `<head>` section in your
-// views/layouts/application.html.erb
-//
-//    <%= vite_client_tag %>
-//    <%= vite_javascript_tag 'application' %>
-import { Component, createApp } from 'vue'
+import { type Component, createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 // Vuetify
@@ -15,32 +10,32 @@ import '@mdi/font/css/materialdesignicons.css'
 
 import App from '../components/pages/App.vue'
 
-const mountApp = (component: component): void => {
+const mountApp = (component: Component): void => {
   const vuetify = createVuetify({
     components,
     directives,
     icons: {
-      defaultSet: 'mdi',
-    },
+      defaultSet: 'mdi'
+    }
   })
-  const app = createApp(App, getDataJson())
+  const app = createApp((App as Component), getDataJson())
   app.use(vuetify)
-  app.component('Component', component)
+  app.component('CurrentPageComponent', component)
   app.mount('#app')
 }
 
-const mountAppWithRouter = (component: Component, routes: { path: string; component: any }[]): void => {
+const mountAppWithRouter = (component: Component, routes: Array<{ path: string, component: any }>): void => {
   const vuetify = createVuetify({
     components,
     directives,
     icons: {
-      defaultSet: 'mdi',
-    },
+      defaultSet: 'mdi'
+    }
   })
-  const app = createApp(App, getDataJson())
+  const app = createApp((App as Component), getDataJson())
   const router = createRouter({
     history: createWebHistory(),
-    routes,
+    routes
   })
   app.use(router)
   app.use(vuetify)
@@ -48,10 +43,10 @@ const mountAppWithRouter = (component: Component, routes: { path: string; compon
   app.mount('#app')
 }
 
-const getDataJson = () => {
-  const element = document.getElementById('app') as HTMLElement
+const getDataJson = (): string => {
+  const element = document.getElementById('app')
   const data = element.getAttribute('data')
-  if (!data) {
+  if (data == null) {
     return {}
   }
 
