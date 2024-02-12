@@ -39,7 +39,7 @@ const mountAppWithRouter = (component: Component, routes: Array<{ path: string, 
   })
   app.use(router)
   app.use(vuetify)
-  app.component('Component', component)
+  app.component('CurrentPageComponent', component)
   app.mount('#app')
 }
 

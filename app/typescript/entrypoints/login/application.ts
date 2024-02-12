@@ -1,5 +1,5 @@
 import { type Component } from 'vue'
-import { mountApp } from '../entrypoints/application.ts'
-import Login from '../../components/pages/login/LoginView.vue'
+import { mountApp } from '../application.ts'
+import LoginView from '../../components/pages/login/LoginView.vue'
 
-mountApp(Login as Component)
+mountApp(LoginView as Component)

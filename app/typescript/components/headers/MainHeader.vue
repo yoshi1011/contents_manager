@@ -9,10 +9,10 @@
 
       <v-spacer />
 
-      <v-btn v-if="!props.loggedIn" href="/providers/sign_in">ログイン</v-btn>
-      <v-btn v-if="!props.loggedIn" href="/providers/sign_up">新規登録</v-btn>
-      <v-btn v-if="props.loggedIn" @click="logout">ログアウト</v-btn>
-      <input v-if="props.loggedIn" type="hidden" name="authenticity_token" :value="authenticityToken" />
+      <v-btn v-if="!loggedIn" href="/providers/sign_in">ログイン</v-btn>
+      <v-btn v-if="!loggedIn" href="/providers/sign_up">新規登録</v-btn>
+      <v-btn v-if="loggedIn" @click="logout">ログアウト</v-btn>
+      <input v-if="loggedIn" type="hidden" name="authenticity_token" :value="authenticityToken" />
     </v-toolbar>
   </v-card>
 </template>
@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import axios from 'axios'
 
-const props = defineProps<
+defineProps<
 {
   loggedIn: boolean
 }

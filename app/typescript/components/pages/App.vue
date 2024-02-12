@@ -1,14 +1,14 @@
 <template>
-  <Header :logged-in="props.loggedIn" />
+  <MainHeader :logged-in="loggedIn" />
 
   <!-- eslint-disable-next-line vue/require-component-is -->
-  <Component />
+  <CurrentPageComponent />
 </template>
 
 <script setup lang="ts">
-import Header from '../headers/MainHeader.vue'
+import MainHeader from '../headers/MainHeader.vue'
 
-const props = defineProps<
+defineProps<
 {
   loggedIn: boolean
 }
