@@ -14,19 +14,16 @@
       <v-select
           :label="'組織タイプを選択'"
           :items="organizationTypes"
-          @update:modelValue="selectedOrganizationType"
+          :rules="[v => !!v || '組織タイプを選択してください']"
+          v-model="organizationType"
       />
     </v-col>
   </v-row>
 </template>
 
 <script setup lang="ts">
-import { defineEmits } from 'vue'
+import { defineModel } from 'vue'
+
 const organizationTypes = ['individual', 'corporation']
-
-const emit = defineEmits(['updateEvent'])
-
-const selectedOrganizationType = (): void => {
-  emit('updateEvent')
-}
+const organizationType = defineModel('organizationType', { required: true, type: String })
 </script>
