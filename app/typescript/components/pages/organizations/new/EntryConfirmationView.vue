@@ -24,6 +24,14 @@
       <p>ドメイン名: {{domainName}}</p>
     </v-col>
   </v-row>
+  <v-row class="mt-12 text-center">
+    <v-col cols="1" offset="5">
+      <v-btn color="normal" @click="previousButtonFunction">戻る</v-btn>
+    </v-col>
+    <v-col cols="2">
+      <v-btn color="success" @click="registrationButtonFunction">登録する</v-btn>
+    </v-col>
+  </v-row>
 </template>
 
 <script setup lang="ts">
@@ -33,5 +41,7 @@ defineProps<{
   organizationType: string
   organizationName: string
   domainName: string
+  previousButtonFunction: () => void
+  registrationButtonFunction: () => void
 }>()
 </script>
