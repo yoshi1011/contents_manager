@@ -25,10 +25,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_152744) do
   end
 
   create_table "organizations", force: :cascade do |t|
+    t.integer "organization_type", default: 0, null: false
     t.string "name", null: false
     t.string "domain", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["domain"], name: "index_organizations_on_domain", unique: true
   end
 
   create_table "providers", force: :cascade do |t|

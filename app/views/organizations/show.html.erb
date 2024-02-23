@@ -1,0 +1,4 @@
+<% content_for(:title) { '企業情報' } %>
+<%= vite_typescript_tag 'entrypoints/organizations/application.ts' %>
+
+<div id="app" data="<%= { loggedIn: @logged_in }.to_json %>"></div>
