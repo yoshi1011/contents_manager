@@ -9,28 +9,20 @@
 
       <v-spacer />
 
-      <v-btn v-if="!loggedIn" href="/providers/sign_in">ログイン</v-btn>
-      <v-btn v-if="!loggedIn" href="/providers/sign_up">新規登録</v-btn>
-      <v-btn v-if="loggedIn" @click="logout">ログアウト</v-btn>
-      <input v-if="loggedIn" type="hidden" name="authenticity_token" :value="authenticityToken" />
+      <LoggedInMenu v-if="loggedIn" />
+      <LoggedOutMenu v-if="!loggedIn" />
     </v-toolbar>
   </v-card>
 </template>
 
 <script setup lang="ts">
-import axios from 'axios'
+import { defineProps } from 'vue'
+import LoggedInMenu from './LoggedInMenu.vue'
+import LoggedOutMenu from './LoggedOutMenu.vue'
 
 defineProps<
 {
   loggedIn: boolean
 }
 >()
-
-const authenticityToken = document.head.querySelector('[name=csrf-token]')?.getAttribute('content') ?? ''
-
-const logout = (): void => {
-  void axios.delete('/providers/sign_out', { params: { authenticity_token: authenticityToken } }).then(() => {
-    location.href = '/'
-  })
-}
 </script>
