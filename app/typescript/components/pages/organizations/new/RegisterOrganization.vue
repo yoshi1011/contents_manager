@@ -10,7 +10,7 @@
         v-if="registrationSteps == 0"
         v-model:organization-type="registrationData.organizationType"
         :next-button-function="proceedToNextStep"
-        :previous-button-function="returnToPreviousStep"
+        :previous-button-function="returnToDetailPage"
     />
     <OrganizationEntryForm
         v-else-if="registrationSteps == 1"
@@ -25,17 +25,19 @@
         :organization-name="registrationData.organizationName"
         :domain-name="registrationData.domainName"
         :previous-button-function="returnToPreviousStep"
-        :registration-button-function="organizationRegistration"
     />
   </v-container>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 import SelectOrganizationType from './SelectOrganizationType.vue'
 import OrganizationEntryForm from './OrganizationEntryForm.vue'
 import EntryConfirmationView from './EntryConfirmationView.vue'
+
+const router = useRouter()
 
 const registrationSteps = ref(0)
 
@@ -51,13 +53,13 @@ const proceedToNextStep = (): void => {
   }
 }
 
+const returnToDetailPage = (): void => {
+  router.push('/organization')
+}
+
 const returnToPreviousStep = (): void => {
   if (registrationSteps.value > 0) {
     registrationSteps.value--
   }
-}
-
-const organizationRegistration = (): void => {
-  console.log('Registration process')
 }
 </script>

@@ -48,7 +48,6 @@ defineProps<{
   organizationName: string
   domainName: string
   previousButtonFunction: () => void
-  registrationButtonFunction: () => void
 }>()
 
 const authenticityToken = document.head.querySelector('[name=csrf-token]')?.getAttribute('content') ?? ''
