@@ -47,7 +47,7 @@ const getDataJson = (): string => {
   const element = document.getElementById('app')
   const data = element.getAttribute('data')
   if (data == null) {
-    return {}
+    return '{}'
   }
 
   return JSON.parse(data)

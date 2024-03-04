@@ -3,11 +3,17 @@ class OrganizationsController < ApplicationController
   before_action :provider_have_affiliation?, only: :show
 
   def show
-    @organization = current_provider.organization
+    @organization = current_provider.organization.slice(:name, :domain, :organization_type).transform_keys do |key|
+      key.to_s.camelize(:lower)
+    end
   end
 
   def new
-    render :show
+    if current_provider.organization.present?
+      redirect_to organization_path, status: :bad_request
+    else
+      render :new
+    end
   end
 
   def create
