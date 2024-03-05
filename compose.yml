@@ -3,7 +3,8 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - "3000:3000" # for rails
+      - "6006:6006" # for storybook
     volumes:
       - .:/app:delegated
       - packs:/app/public/packs

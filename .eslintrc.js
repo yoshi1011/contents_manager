@@ -5,7 +5,8 @@ module.exports = {
     },
     "extends": [
         "standard-with-typescript",
-        "plugin:vue/vue3-essential"
+        "plugin:vue/vue3-essential",
+        "plugin:storybook/recommended"
     ],
     "overrides": [
         {

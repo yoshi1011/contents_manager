@@ -3,12 +3,20 @@
   "private": "true",
   "dependencies": {
     "axios": "^1.6.7",
+    "storybook": "^7.6.17",
     "vue": "^3.4.0",
     "vue-router": "^4.2.0",
     "vuetify": "^3.4.2"
   },
   "devDependencies": {
     "@mdi/font": "^7.3.67",
+    "@storybook/addon-essentials": "^7.6.17",
+    "@storybook/addon-interactions": "^7.6.17",
+    "@storybook/addon-links": "^7.6.17",
+    "@storybook/blocks": "^7.6.17",
+    "@storybook/test": "^7.6.17",
+    "@storybook/vue3": "^7.6.17",
+    "@storybook/vue3-vite": "^7.6.17",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@vitejs/plugin-vue": "^4.5.0",
     "eslint": "^8.0.1",
@@ -16,13 +24,19 @@
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "eslint-plugin-vue": "^9.21.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "*",
     "vite": "^5.1.0",
     "vite-plugin-ruby": "^5.0.0",
     "vue-tsc": "^1.8.22"
   },
   "scripts": {
-    "lint": "eslint --ext .vue,.ts app/typescript/"
+    "lint": "eslint --ext .vue,.ts app/typescript/",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   }
 }
