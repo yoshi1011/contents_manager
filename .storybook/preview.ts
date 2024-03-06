@@ -1,4 +1,10 @@
-import type { Preview } from "@storybook/vue3";
+import { setup, type Preview } from "@storybook/vue3";
+import {registerPlugins} from "../app/typescript/plugins";
+import {withVuetifyTheme} from "./withVuetifyTheme.decorator.ts";
+
+setup((app) => {
+  registerPlugins(app);
+})
 
 const preview: Preview = {
   parameters: {
@@ -13,3 +19,4 @@ const preview: Preview = {
 };
 
 export default preview;
+export const decorators = [withVuetifyTheme]

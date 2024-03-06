@@ -1,44 +1,16 @@
 import { type Component, createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-
-// Vuetify
-import 'vuetify/styles'
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
-import '@mdi/font/css/materialdesignicons.css'
 
 import App from '../components/pages/App.vue'
+import { registerPlugins, registerPluginsWithRouter } from '../plugins'
 
 const mountApp = (component: Component): void => {
-  const vuetify = createVuetify({
-    components,
-    directives,
-    icons: {
-      defaultSet: 'mdi'
-    }
-  })
-  const app = createApp((App as Component), getDataJson())
-  app.use(vuetify)
+  const app = registerPlugins(createApp((App as Component), getDataJson()))
   app.component('CurrentPageComponent', component)
   app.mount('#app')
 }
 
 const mountAppWithRouter = (component: Component, routes: Array<{ path: string, component: any }>): void => {
-  const vuetify = createVuetify({
-    components,
-    directives,
-    icons: {
-      defaultSet: 'mdi'
-    }
-  })
-  const app = createApp((App as Component), getDataJson())
-  const router = createRouter({
-    history: createWebHistory(),
-    routes
-  })
-  app.use(router)
-  app.use(vuetify)
+  const app = registerPluginsWithRouter(createApp((App as Component), getDataJson()), routes)
   app.component('CurrentPageComponent', component)
   app.mount('#app')
 }
