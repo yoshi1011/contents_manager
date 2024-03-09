@@ -20,9 +20,9 @@ import { defineProps } from 'vue'
 import LoggedInMenu from './LoggedInMenu.vue'
 import LoggedOutMenu from './LoggedOutMenu.vue'
 
-defineProps<
-{
+interface MainHeaderProps {
   loggedIn: boolean
 }
->()
+
+defineProps<MainHeaderProps>()
 </script>
