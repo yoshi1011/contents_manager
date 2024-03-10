@@ -10,7 +10,7 @@ export const withVuetifyTheme = (storyFn, context) => {
         {}, // Props for StoryWrapper
         {
           // Puts your story into StoryWrapper's "story" slot with your story args
-          story: () => h(story, { ...context.args }),
+          story: () => h(story, {...context.args}),
         }
     );
   };
