@@ -15,6 +15,9 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <%= vite_typescript_tag 'entrypoints/header/application.ts' %>
+    <div id="header" data="<%= { loggedIn: @logged_in }.to_json %>"></div>
+
     <%= yield %>
 
     <%= console if Rails.env.development? %>
